@@ -1,0 +1,23 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @practice.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @practice.address %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @practice.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_practice_path(@practice) %> |
+<%= link_to 'Back', practices_path %>
+
+</div>
