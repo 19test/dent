@@ -10,9 +10,14 @@ class PracticesController < ApplicationController
 
   def new
     @practice = Practice.new
+    @professionals = []
+    @professional = Professional.new
   end
 
   def edit
+    @practice = Practice.find(params[:id])
+    @professionals = @practice.professionals
+    @professional = Professional.new
   end
 
   def create
@@ -30,6 +35,7 @@ class PracticesController < ApplicationController
   end
 
   def update
+    puts "UPDATE: #{params}"
     respond_to do |format|
       if @practice.update(practice_params)
         format.html { redirect_to @practice, notice: 'practice was successfully updated.' }
