@@ -29,8 +29,8 @@ class ProfessionalsController < ApplicationController
         # params['user_ids'].each do |id|
         #   @professional.add_user(id)
         # end 
-        
-        format.html { redirect_to @professional, notice: 'professional was successfully created.' }
+
+        format.html { redirect_to :back, notice: 'professional was successfully created.' }
         format.json { render :show, status: :created, location: @professional }
       else
         format.html { render :new }

@@ -35,7 +35,6 @@ class PracticesController < ApplicationController
   end
 
   def update
-    puts "UPDATE: #{params}"
     respond_to do |format|
       if @practice.update(practice_params)
         format.html { redirect_to @practice, notice: 'practice was successfully updated.' }
