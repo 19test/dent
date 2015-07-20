@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @practice, notice: 'user was successfully created.' }
+        format.html { redirect_to @user, notice: 'user was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @user.update(practice_params)
+      if @user.update(user_params)
         format.html { redirect_to @user, notice: 'user was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
   private
 
-    # def user_params
-    #   params.require(:user).permit(:username, :email)
-    # end
+    def user_params
+      params.require(:user).permit(:username, :email)
+    end
 end
