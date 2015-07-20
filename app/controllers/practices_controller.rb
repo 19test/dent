@@ -35,6 +35,7 @@ class PracticesController < ApplicationController
   end
 
   def update
+    @practice = Practice.find(params[:id])
     respond_to do |format|
       if @practice.update(practice_params)
         format.html { redirect_to @practice, notice: 'practice was successfully updated.' }
@@ -48,6 +49,7 @@ class PracticesController < ApplicationController
 
 
   def destroy
+    @practice = Practice.find(params[:id])
     @practice.destroy
     respond_to do |format|
       format.html { redirect_to practices_url, notice: 'practice was successfully destroyed.' }

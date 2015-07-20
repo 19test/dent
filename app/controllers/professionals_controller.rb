@@ -40,6 +40,7 @@ class ProfessionalsController < ApplicationController
   end
 
   def update
+    @professional = Professional.find(params[:id])
     respond_to do |format|
       if @professional.update(professional_params)
         format.html { redirect_to @professional, notice: 'professional was successfully updated.' }
