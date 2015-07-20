@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713231651) do
+ActiveRecord::Schema.define(version: 20150716014643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,26 @@ ActiveRecord::Schema.define(version: 20150713231651) do
     t.datetime "updated_at"
   end
 
-  create_table "professionals", force: :cascade do |t|
-    t.string  "name"
-    t.string  "phone_number"
-    t.string  "email"
-    t.text    "bio"
-    t.integer "users_id"
+  create_table "practices_professionals", id: false, force: :cascade do |t|
+    t.integer "practice_id"
+    t.integer "professional_id"
   end
 
-  add_index "professionals", ["users_id"], name: "index_professionals_on_users_id", using: :btree
+  add_index "practices_professionals", ["practice_id", "professional_id"], name: "practices_professionals_joins", using: :btree
+
+  create_table "professionals", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.string "email"
+    t.text   "bio"
+  end
+
+  create_table "professionals_users", id: false, force: :cascade do |t|
+    t.integer "professional_id"
+    t.integer "user_id"
+  end
+
+  add_index "professionals_users", ["professional_id", "user_id"], name: "index_professionals_users_on_professional_id_and_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -47,11 +58,9 @@ ActiveRecord::Schema.define(version: 20150713231651) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "professionals_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["professionals_id"], name: "index_users_on_professionals_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ /*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+ /* use @import for sass files */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+

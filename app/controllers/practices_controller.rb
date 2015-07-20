@@ -10,9 +10,14 @@ class PracticesController < ApplicationController
 
   def new
     @practice = Practice.new
+    @professionals = []
+    @professional = Professional.new
   end
 
   def edit
+    @practice = Practice.find(params[:id])
+    @professionals = @practice.professionals
+    @professional = Professional.new
   end
 
   def create
