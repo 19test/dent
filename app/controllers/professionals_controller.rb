@@ -20,15 +20,17 @@ class ProfessionalsController < ApplicationController
     @professional = Professional.new(professional_params)
     respond_to do |format|
       if @professional.save
-
-        params['professional']['practice_ids'].each do |id|
-          practice = Practice.find(id)
-          @professional.add_practice(practice)
-          practice.add_professional(@professional)
+        if params["professional"]["practice_ids"]
+          params['professional']['practice_ids'].each do |id|
+            practice = Practice.find(id)
+            practice.add_professional(@professional)
+          end
         end
-        # params['user_ids'].each do |id|
-        #   @professional.add_user(id)
-        # end 
+
+        user = User.where("email =? ", params['email']).first
+        if user
+          @professional.add_user(user)
+        end
 
         format.html { redirect_to :back, notice: 'professional was successfully created.' }
         format.json { render :show, status: :created, location: @professional }

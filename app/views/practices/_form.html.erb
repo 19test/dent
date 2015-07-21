@@ -30,41 +30,34 @@
 
 <% end %>
 
-  <h2>Professionals</h2>
-  <div class="list col-md-12">
-    <ul>
-      <li>
-        <div class="col-md-3">
-          <h4>Name</h2>
-        </div>
-        <div class="col-md-3">
-          <h4>Email</h2>
-        </div>
-        <div class="col-md-3">
-          <h4>Phone</h2>
-        </div>
-        <div class="col-md-3">
-          <h4>Bio</h2>
-        </div>
-      </li>
+  <h2>Associated Professionals</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Bio</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
       <% @professionals.each do |professional| %>
-        <li class="list-row">
-          <div class="col-md-3">
-            <%= professional.name %>
-          </div>
-          <div class="col-md-3">
-            <%= professional.email %>
-          </div>
-          <div class="col-md-3">
-            <%= professional.phone_number %>
-          </div>
-          <div class="col-md-3">
-            <%= professional.bio %>
-          </div>
-        </li>
+      <tr>
+        <td><%= professional.name %></td>
+        <td><%= professional.email %></td>
+        <td><%= professional.phone_number %></td>
+        <td><%= professional.bio %></td>
+        <td><%= link_to 'Show', professional %></td>
+        <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+        <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
       <% end %>
-    </ul>
-  </div>
+    </tbody>
+  </table>
 
 
   <hr />
@@ -85,15 +78,15 @@
     <%= f.hidden_field 'practice_ids][', :value => @practice.id %>
     <div class="field">
       <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :required => true %>
     </div>
     <div class="field">
       <%= f.label :email %><br>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, :required => true %>
     </div>
     <div class="field">
       <%= f.label :phone_number %><br>
-      <%= f.number_field :phone_number %>
+      <%= f.telephone_field :phone_number %>
     </div>
     <div class="field">
       <%= f.label :bio %><br>
