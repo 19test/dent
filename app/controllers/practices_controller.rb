@@ -1,5 +1,7 @@
 class PracticesController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @practices = Practice.all
   end

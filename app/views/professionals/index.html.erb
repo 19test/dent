@@ -18,16 +18,21 @@
         <td><%= professional.name %></td>
         <td><%= professional.email %></td>
         <td><%= professional.phone_number %></td>
+        <td><%= professional.bio %></td>
         <td><%= link_to 'Show', professional %></td>
-        <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
-        <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+          <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New professional', new_professional_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New professional', new_professional_path %>
+<% end %>
 
 </div>

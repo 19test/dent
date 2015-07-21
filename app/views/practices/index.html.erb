@@ -18,15 +18,19 @@
         <td><%= practice.address %></td>
         <td><%= practice.phone_number %></td>
         <td><%= link_to 'Show', practice %></td>
-        <td><%= link_to 'Edit', edit_practice_path(practice) %></td>
-        <td><%= link_to 'Destroy', practice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_practice_path(practice) %></td>
+          <td><%= link_to 'Destroy', practice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New practice', new_practice_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New practice', new_practice_path %>
+<% end %>
 
 </div>
