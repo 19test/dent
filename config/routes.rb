@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'welcome#index'
 
+  namespace :users do
+    resources :profie, only: [:show, :edit, :update]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

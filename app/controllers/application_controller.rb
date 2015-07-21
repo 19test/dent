@@ -12,6 +12,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_self!
+    unless current_user.id == params["id"]
+      redirect_to root_url, 
+        :notice => {error: "You cannot edit someone else's profile"}
+    end
+  end
+
   def resource_name
     :user
   end
