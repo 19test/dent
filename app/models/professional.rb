@@ -6,4 +6,8 @@ class Professional < ActiveRecord::Base
 	def add_practice(practice)
 		self.practices << practice
 	end	
+
+  def add_user(user)
+    self.users << user
+  end 
 end

@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :professional
+
+  def add_professional(professional)
+    self.professional = professional
+  end 
 end
