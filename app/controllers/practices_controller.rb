@@ -1,5 +1,7 @@
 class PracticesController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @practices = Practice.all
   end
@@ -29,7 +31,8 @@ class PracticesController < ApplicationController
         format.json { render :show, status: :created, location: @practice }
       else
         format.html { render :new }
-        format.json { render json: @practice.errors, status: :unprocessable_entity }
+        format.json { render json: @practice.errors, 
+            status: :unprocessable_entity }
       end
     end
   end
@@ -42,7 +45,8 @@ class PracticesController < ApplicationController
         format.json { render :show, status: :ok, location: @practice }
       else
         format.html { render :edit }
-        format.json { render json: @practice.errors, status: :unprocessable_entity }
+        format.json { render json: @practice.errors, 
+              status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +56,8 @@ class PracticesController < ApplicationController
     @practice = Practice.find(params[:id])
     @practice.destroy
     respond_to do |format|
-      format.html { redirect_to practices_url, notice: 'practice was successfully destroyed.' }
+      format.html { redirect_to practices_url, 
+          notice: 'practice was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

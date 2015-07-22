@@ -1,0 +1,28 @@
+Public Profile
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Bio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_name</td>
+      <td>user_email (send message instead of showing email)</td>
+      <td>user_phone_number</td>
+      <td>user_bio</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Professional Associations</h3>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "Edit", edit_users_profile_path(current_user)%>
+<% end %>
+
+
