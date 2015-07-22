@@ -1,7 +1,7 @@
 class Users::ProfilesController < ApplicationController
 
   before_filter :authenticate_user!, except: [:show]
-  before_filter :authenticate_self!, :only, :edit
+  # before_filter :authenticate_self!, :only, :edit
 
   def show
     @user = User.find(params[:id])

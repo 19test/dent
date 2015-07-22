@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   namespace :users do
-    resources :profie, only: [:show, :edit, :update]
+    resources :profiles, only: [:show, :edit, :update]
   end
 
   # Example of regular route:
