@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150724135006) do
     t.string   "profile_pic"
     t.text     "bio"
     t.text     "city"
-    t.text     "provice"
+    t.text     "province"
     t.text     "postal_code"
   end
 

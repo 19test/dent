@@ -8,6 +8,8 @@ class PracticesController < ApplicationController
 
   def show
     @practice = Practice.find(params[:id])
+    @professionals = @practice.professionals
+    @default_image = default_image
   end
 
   def new
@@ -65,6 +67,6 @@ class PracticesController < ApplicationController
   private
 
     def practice_params
-      params.require(:practice).permit(:name, :address, :phone_number)
+      params.require(:practice).permit(:name, :address, :city, :province, :postal_code, :phone_number, :bio)
     end
 end

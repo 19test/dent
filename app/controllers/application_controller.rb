@@ -31,6 +31,10 @@ class ApplicationController < ActionController::Base
     @devise_mapping ||= Devise.mappings[:user]
   end
 
+  def default_image
+    "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1Vam2cBYE0BiCYXcAjB_xM92rIMQQ7YZ9rY9levRJ01eerIUYnPtwoQBl"
+  end
+
 
   protected
 
