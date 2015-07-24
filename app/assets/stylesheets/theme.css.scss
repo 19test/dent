@@ -4,7 +4,7 @@ $dark: #ff4444;
 .jumbotron {
   background: $highlight;
   color: white;
-  padding-bottom: 80px;
+  padding-bottom: 20em;
 
   .btn-primary {
     background: lighten($highlight, 20%);
@@ -21,7 +21,7 @@ $dark: #ff4444;
   }
 
   .navbar + & {
-    margin-top: -20px;
+    margin-top: -2em;
   }
 
   .dent-logo {
@@ -29,10 +29,10 @@ $dark: #ff4444;
     background: $dark;
     border-radius: 50%;
     overflow: hidden;
-    width: 100px;
-    height: 100px;
+    width: 7em;
+    height: 7em;
     margin: auto;
-    border: 2px solid white;
+    border: 0.2em solid white;
     img {
       max-width: 100%;
     }
