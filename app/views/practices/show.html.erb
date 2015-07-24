@@ -1,23 +1,27 @@
-<div class="container">
+<div class="mediaCard clearfix">
+  <img src="<%= @practice.profile_pic || @default_image %>">
+  <div>
+    <ul>
+      <li><h3><%= @practice.name %><h3></li>
+      <li><h4><%= @practice.address %>, 
+        <%= @practice.city %>, 
+        <%= @practice.province %>,
+        <%= @practice.postal_code %></h4></li>
+      <li>Bio: <%= @practice.bio %></li>
+    </ul>
+    <!--TODO: Lock down to owner-->
+    <%= link_to 'Edit', edit_practice_path(@practice) %>
+  </div>
+</div>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @practice.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @practice.address %>
-</p>
-
-<p>
-  <strong>Phone Number:</strong>
-  <%= @practice.phone_number %>
-</p>
-
-<%= link_to 'Edit', edit_practice_path(@practice) %> |
-<%= link_to 'Back', practices_path %>
-
+<div class="article">
+  <h4>Professional Associations</h4>
+  <% @professionals.each do |professional| %>
+    <div class="mediaCard">
+      <h5><%= professional.name %></h5>
+      <%= professional.phone_number %>
+      <%= professional.email %>
+      <%= professional.bio %>
+    </div>
+  <% end %>
 </div>

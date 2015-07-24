@@ -26,6 +26,14 @@
 .article {
   margin-left: 1.5em;
   font-size: 1em;
+
+  input, textarea, select, .uneditable-input {
+    border: 0.2em solid #bbb;
+    width: 50%;
+    padding: 0.5em;
+    height: auto !important;
+    margin-bottom: 2em;
+  }
 }
 
 .navLink {
