@@ -1,0 +1,29 @@
+.table {
+  text-align: center;
+
+  th {
+    text-align: center;
+  }
+}
+
+.mediaCard {
+  img{
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    float: left;
+  }
+
+  ul{
+    list-style: none;
+    float: left;
+    padding-right: 30px;
+  }
+
+  margin-left: 20px;
+}
+
+.article {
+  margin-left: 30px;
+  font-size: 27px;
+}

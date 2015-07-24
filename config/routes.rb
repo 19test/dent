@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users
   resources :practices
   resources :professionals
   # The priority is based upon order of creation: first created -> highest priority.
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   namespace :users do
     resources :profiles, only: [:show, :edit, :update]
   end
+
+  devise_for :users, controllers: { sessions: "users/sessions" }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
