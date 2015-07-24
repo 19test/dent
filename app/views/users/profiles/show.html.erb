@@ -1,28 +1,24 @@
-Public Profile
+<div class="mediaCard clearfix">
+  <img src="<%= @user.profile_pic || @default_image %>">
+  <div>
+    <ul>
+      <li><h3><%= @user.user_name %><h3></li>
+      <!--TODO: (send message instead of showing email) -->
+      <li><h4><%= @user.email %></h4></li>
+      <li>Bio: <%= @user.bio %></li>
+    </ul>
+    <% if current_user.id == @user.id %>
+      <%= link_to "Edit", edit_users_profile_path(current_user)%>
+    <% end %>
+  </div>
+</div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-      <th>Bio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>user_name</td>
-      <td>user_email (send message instead of showing email)</td>
-      <td>user_phone_number</td>
-      <td>user_bio</td>
-    </tr>
-  </tbody>
-</table>
+<div class="article">
+  <h4>Professional Associations</h4>
+  <!--%= @professionals.inspect %-->
+</div>
 
-<h3>Professional Associations</h3>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "Edit", edit_users_profile_path(current_user)%>
-<% end %>
+
 
 

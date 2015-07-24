@@ -1,26 +1,14 @@
 class Users::ProfilesController < ApplicationController
 
   before_filter :authenticate_user!, except: [:show]
-  # before_filter :authenticate_self!, :only, :edit
 
   def show
+    @default_image = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1Vam2cBYE0BiCYXcAjB_xM92rIMQQ7YZ9rY9levRJ01eerIUYnPtwoQBl"
     @user = User.find(params[:id])
+    @professionals = ProfessionalsUsers.where("user_id =  ?", 1)
   end
 
   def edit
     @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    respond_to do |format|
-      if @user.update(params)
-        format.html { redirect_to @user, notice: 'profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
   end
 end
