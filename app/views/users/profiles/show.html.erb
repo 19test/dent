@@ -1,5 +1,5 @@
 <div class="mediaCard clearfix">
-  <img src="<%= @user.profile_pic %>">
+  <img src="<%= @user.profile_pic || @default_image %>">
   <div>
     <ul>
       <li><h3><%= @user.user_name %><h3></li>
@@ -15,6 +15,7 @@
 
 <div class="article">
   <h4>Professional Associations</h4>
+  <!--%= @professionals.inspect %-->
 </div>
 
 
