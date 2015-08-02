@@ -38,6 +38,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
+gem "rails-backbone"  
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

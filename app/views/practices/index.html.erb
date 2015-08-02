@@ -1,3 +1,14 @@
+<div id="practices"></div>
+
+<script type="text/javascript">
+  $(function() {
+  window.router = new RubyGettingStarted.Routers.PracticesRouter({practices: <%= @practices.to_json.html_safe -%>});
+  Backbone.history.start();
+  });
+</script>
+
+
+<!--
 <div class="container">
 <h1>Listing practices</h1>
 
@@ -33,4 +44,4 @@
   <%= link_to 'New practice', new_practice_path %>
 <% end %>
 
-</div>
+</div>-->

@@ -10,7 +10,8 @@
       <li>Bio: <%= @practice.bio %></li>
     </ul>
     <!--TODO: Lock down to owner-->
-    <%= link_to 'Edit', edit_practice_path(@practice) %>
+    <%= link_to 'Edit', edit_practice_path(@practice) %> | 
+    <a href="/practices">Practices</a>
   </div>
 </div>
 
@@ -25,3 +26,4 @@
     </div>
   <% end %>
 </div>
+
