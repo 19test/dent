@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
   $(function() {
-  window.router = new RubyGettingStarted.Routers.PracticesRouter({practices: <%= @practices.to_json.html_safe -%>});
+  window.router = new Dent.Routers.PracticesRouter({practices: <%= @practices.to_json.html_safe -%>});
   Backbone.history.start();
   });
 </script>

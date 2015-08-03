@@ -1,7 +1,7 @@
-class RubyGettingStarted.Routers.PracticesRouter extends Backbone.Router
+class Dent.Routers.PracticesRouter extends Backbone.Router
 
   initialize: (options) ->
-    @practices = new RubyGettingStarted.Collections.PracticesCollection()
+    @practices = new Dent.Collections.PracticesCollection()
     @practices.reset options.practices
 
   routes:
@@ -12,15 +12,15 @@ class RubyGettingStarted.Routers.PracticesRouter extends Backbone.Router
     ".*"          : "index"
 
   index: ->
-    @view = new RubyGettingStarted.Views.PracticesIndexView({collection: @practices})
+    @view = new Dent.Views.PracticesIndexView({collection: @practices})
 
   newPractice: ->
-    @view = new RubyGettingStarted.Views.PracticesNewView({collection: @practices})
+    @view = new Dent.Views.PracticesNewView({collection: @practices})
 
   show: (id) ->
     practice = @practices.get(id)
-    @view = new RubyGettingStarted.Views.PracticesShowView({model: practices})
+    @view = new Dent.Views.PracticesShowView({model: practices})
 
   edit: (id) ->
     practice = @practices.get(id)
-    @view = new RubyGettingStarted.Views.PracticesEditView({model: practices})
+    @view = new Dent.Views.PracticesEditView({model: practices})

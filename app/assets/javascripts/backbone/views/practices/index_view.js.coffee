@@ -1,4 +1,4 @@
-class RubyGettingStarted.Views.PracticesIndexView extends Backbone.View
+class Dent.Views.PracticesIndexView extends Backbone.View
 
   el: '#practices'
 
@@ -12,7 +12,7 @@ class RubyGettingStarted.Views.PracticesIndexView extends Backbone.View
     @collection.forEach(@addOne, @)
 
   addOne: (model) ->
-    @view = new RubyGettingStarted.Views.PracticeView({model: model})
+    @view = new Dent.Views.PracticeView({model: model})
     @$el.find('tbody').append @view.render().el
 
   render: ->

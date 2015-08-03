@@ -1,6 +1,6 @@
-class RubyGettingStarted.Models.Practice extends Backbone.Model
+class Dent.Models.Practice extends Backbone.Model
   paramRoot: 'practice'
 
-class RubyGettingStarted.Collections.PracticesCollection extends Backbone.Collection
-  model: RubyGettingStarted.Models.Practice
+class Dent.Collections.PracticesCollection extends Backbone.Collection
+  model: Dent.Models.Practice
   url: '/practices'

@@ -1,4 +1,4 @@
-class RubyGettingStarted.Views.PracticesNewView extends Backbone.View
+class Dent.Views.PracticesNewView extends Backbone.View
   el: '#practices'
 
   template: JST["backbone/templates/practices/new"]
@@ -17,7 +17,12 @@ class RubyGettingStarted.Views.PracticesNewView extends Backbone.View
     e.stopPropagation()
     name = $('#name').val()
     address = $('#address').val()
-    model = new RubyGettingStarted.Models.Practice({name: name, address: address})
+    city = $('#city').val()
+    province  = $('#province').val()
+    postal_code = $('#postal_code').val()
+    phone_number = $('#phone_number').val()
+    bio = $('#bio').val()
+    model = new Dent.Models.Practice({name: name, address: address, city: city, province: province, postal_code: postal_code, phone_number: phone_number, bio: bio})
     @collection.create model,
       success: (practice) =>
         @model = practice

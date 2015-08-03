@@ -16,6 +16,6 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
-//= require backbone/rubyGettingStarted
+//= require backbone/dent
 //= require_tree .
 //= require bootstrap-sprockets

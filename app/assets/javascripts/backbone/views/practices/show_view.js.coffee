@@ -1,4 +1,4 @@
-class RubyGettingStarted.Views.PracticesShowView extends Backbone.View
+class Dent.Views.PracticesShowView extends Backbone.View
 
   template: JST["backbone/templates/practices/show"]
 
