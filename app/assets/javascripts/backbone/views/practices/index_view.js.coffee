@@ -1,20 +1,20 @@
 class RubyGettingStarted.Views.PracticesIndexView extends Backbone.View
 
-el: '#practices'
+  el: '#practices'
 
-template: JST["backbone/templates/practices/index"]
+  template: JST["backbone/templates/practices/index"]
 
-initialize: ->
+  initialize: ->
     @render()
     @addAll()
 
-addAll: ->
+  addAll: ->
     @collection.forEach(@addOne, @)
 
-addOne: (model) ->
+  addOne: (model) ->
     @view = new RubyGettingStarted.Views.PracticeView({model: model})
     @$el.find('tbody').append @view.render().el
 
-render: ->
+  render: ->
     @$el.html @template()
     @
