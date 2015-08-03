@@ -1,25 +1,36 @@
 class PracticesController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @practices = Practice.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @practices }
+    end
   end
 
   def show
-    @practice = Practice.find(params[:id])
     @professionals = @practice.professionals
     @default_image = default_image
+    respond_to do |format|
+      format.html 
+      format.json { render json: @practice }
+    end
   end
 
   def new
     @practice = Practice.new
     @professionals = []
     @professional = Professional.new
+    respond_to do |format|
+      format.html
+      format.json { render json: @post }
+    end
   end
 
   def edit
-    @practice = Practice.find(params[:id])
     @professionals = @practice.professionals
     @professional = Professional.new
   end
@@ -40,7 +51,6 @@ class PracticesController < ApplicationController
   end
 
   def update
-    @practice = Practice.find(params[:id])
     respond_to do |format|
       if @practice.update(practice_params)
         format.html { redirect_to @practice, notice: 'practice was successfully updated.' }
@@ -55,7 +65,6 @@ class PracticesController < ApplicationController
 
 
   def destroy
-    @practice = Practice.find(params[:id])
     @practice.destroy
     respond_to do |format|
       format.html { redirect_to practices_url, 
@@ -65,6 +74,10 @@ class PracticesController < ApplicationController
   end
 
   private
+
+    def set_post
+      @practice = Practice.find(params[:id])
+    end
 
     def practice_params
       params.require(:practice).permit(:name, :address, :city, :province, :postal_code, :phone_number, :bio)
