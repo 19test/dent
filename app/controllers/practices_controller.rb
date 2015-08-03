@@ -14,20 +14,20 @@ class PracticesController < ApplicationController
   def show
     @professionals = @practice.professionals
     @default_image = default_image
-    # respond_to do |format|
-    #   format.html 
-    #   format.json { render json: @practice }
-    # end
+    respond_to do |format|
+      format.html 
+      format.json { render json: @practice }
+    end
   end
 
   def new
     @practice = Practice.new
     @professionals = []
     @professional = Professional.new
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @post }
-    # end
+    respond_to do |format|
+      format.html
+      format.json { render json: @post }
+    end
   end
 
   def edit

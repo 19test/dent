@@ -19,8 +19,8 @@ class Dent.Routers.PracticesRouter extends Backbone.Router
 
   show: (id) ->
     practice = @practices.get(id)
-    @view = new Dent.Views.PracticesShowView({model: practices})
+    @view = new Dent.Views.PracticesShowView({model: practice})
 
   edit: (id) ->
     practice = @practices.get(id)
-    @view = new Dent.Views.PracticesEditView({model: practices})
+    @view = new Dent.Views.PracticesEditView({model: practice})

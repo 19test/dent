@@ -10,7 +10,7 @@ class Dent.Views.PracticesNewView extends Backbone.View
     @render()
 
   render: ->
-    @$el.html @template()
+   @$el.html @template()
 
   save: (e) ->
     e.preventDefault()
