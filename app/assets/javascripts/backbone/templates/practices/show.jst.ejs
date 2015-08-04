@@ -1,36 +1,19 @@
-<p>
-  <b>Name:</b>
-  <%= name %>
-</p>
+<div class="mediaCard clearfix">
+  <img >
+  <div>
+    <ul>
+      <li><h3><%= name %><h3></li>
+      <li><h4><%= address %>, 
+        <%= city %>, 
+        <%= province %>,
+        <%= postal_code %></h4></li>
+      <li><h5><%= phone_number %></h5></li>
+      <li>Bio: <%= bio %></li>
+    </ul>
+  </div>
+  <a href="#/index">Index</a> |
+  <a href="#/<%= id %>/edit">Edit</a>
+</div>
 
-<p>
-  <b>Address:</b>
-  <%= address %>
-</p>
 
-<p>
-  <b>City:</b>
-  <%= city %>
-</p>
 
-<p>
-  <b>Province:</b>
-  <%= province %>
-</p>
-
-<p>
-  <b>Postal Code:</b>
-  <%= postal_code %>
-</p>
-
-<p>
-  <b>Phone Number:</b>
-  <%= phone_number %>
-</p>
-
-<p>
-  <b>Bio:</b>
-  <%= bio %>
-</p>
-
-<a href="#/index">Back</a>
