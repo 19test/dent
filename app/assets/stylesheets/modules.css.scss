@@ -8,11 +8,11 @@
 
 .mediaCard {
   img{
-    width: 15em;
+    width: 20em;
     height: 15em;
     padding: 1em;
     float: left;
-    background-image: url('../images/dentist.jpg')
+    background-image: url(image-path('dentist.jpg'));
   }
 
   ul{
@@ -20,7 +20,6 @@
     float: left;
     padding-right: 3em;
   }
-
   margin-left: 2em;
 }
 
